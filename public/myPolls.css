@@ -1,0 +1,258 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 16px;
+  color: white;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+}
+
+.header-container{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #59DD95;
+  z-index: 100;
+}
+
+.header{
+  width: 80%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu > li{
+  display: inline;
+  margin-right: 50px;
+  font-size: 1.4em;
+}
+
+.menu > li:last-of-type{
+  margin-right: 0;
+}
+
+span{
+  cursor: pointer;
+}
+
+.dropdown{
+  position: relative;
+}
+
+.dropdown > span{
+  position: relative;
+  z-index: 200;
+}
+
+.dropdown:hover .submenu{
+  display: block;
+  background: #50D6AA;
+  border-radius: 5px;
+  padding-top: 40px;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  z-index: 150;
+  width: 180px;
+}
+
+.submenu{
+  display: none;
+}
+
+.submenu li{
+  list-style: none;
+  border-bottom: 2px solid #777;
+  padding: 0 40px 10px 20px;
+  margin: 10px;
+  font-size: 0.8em;
+}
+
+.submenu li:last-of-type{
+  border-bottom: none;
+}
+
+
+.poll-container{
+  position: relative;
+  display: flex;
+  width: 80%;
+  margin: 100px auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.poll{
+  position: relative;
+  width: 320px;
+  min-height: 110px;
+  background: #99A995;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #777;
+}
+
+.poll-name{
+  font-size: 2em;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.select-btn{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #444;
+  height: 27px;
+  width: 35px;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.select-btn:hover{
+  background: #666;
+}
+
+.options{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 10px;
+  background: #50D6AA;
+  z-index: 5;
+  display: none;
+}
+
+.options > li{
+  list-style: none;
+  border-bottom: 2px solid white;
+  padding: 0 40px 10px 20px;
+  margin: 10px;
+}
+
+.options > li:last-of-type{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+/*Delete container*/
+.delete-container{
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  background: #666;
+  padding: 15px;
+  width: 300px;
+  border: 2px solid white;
+  font-size: 1.2em;
+  display: none;
+  box-shadow: 0 5px 100px black;
+  z-index: 10;
+}
+
+.delete-btns{
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+/*.delete-btns*/ button{
+  outline: none;
+  padding: 6px;
+  font-size: 1em;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*.delete-btns*/ button:hover{
+  box-shadow: 0 0 13px white;
+}
+
+/*.delete-btns*/ button:active{
+  transform: translate(2px, 1px);
+}
+
+/* Bar chart and stuff */
+.details-container{
+  position: absolute;
+  top: -10%;
+  left: 4%;
+  width: 92%;
+  background: #333;
+  height: 550px;
+  z-index: 20;
+  display: none;/*flex;*/
+  justify-content: center;
+  align-items: center;
+}
+
+.details{
+ padding: 1%;
+ width: 43%;
+ height: 85%;
+ text-align: center;
+}
+
+input[type = 'radio']{
+  margin-top: 5px;
+  width: 2em;
+  height: 2em;
+  border: none;
+}
+
+.details-container span{
+  cursor: auto;
+}
+
+.poll-options span{
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-size: 2em;
+  cursor: default;
+}
+
+.close-details-container{
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  border: 2px solid white;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: black;
+  text-align: center;
+}
+
+.msg{
+  position: fixed;
+  top: 25%;
+  left: 40%;
+  padding: 20px;
+  min-height: 100px;
+  background: #A9DA78;
+  color: white;
+  font-size: 2em;
+  z-index: 200;
+  display: none;
+  border: 2px solid #555;
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px #666;
+}

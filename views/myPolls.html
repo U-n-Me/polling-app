@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Polls</title>
+    <meta name="description" content="Polling App for FCC">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/myPolls.css">
+  </head>
+  
+  <body>
+    <div class = "container">
+    
+      <!-- Header and menu( with dropdown)-->
+      <div class = "header-container">
+        <div class = "header">
+          <a href = "/"><img src = "https://cdn.glitch.com/61ecfb14-e075-476f-bcb2-d1f3f76197ac%2FVS.png?1502877710976" style = "width: 60px; height: 60px; border-radius: 50%;"></a>
+        
+        <ul class = "menu">
+          <li class = "dropdown"><span id = "user">UserName &#9662; </span>
+            <ul class = "submenu">
+              <li><span onclick = "getPage('/vote')">Vote Page</span></li>
+              <li><span onclick = "getPage('/')">Home Page</span></li>
+              <li><span onclick = "getPage('/create-poll')">Create Poll</span></li>
+              <li><span onclick = "getPage('/logout')">Logout</span></li>
+            </ul>
+          </li>
+          <li id = "createPoll"><span onclick = "getPage('/create-poll')">Create Poll</span></li>
+        </ul>
+        
+       </div>
+      </div>
+      
+     <!-- Poll cells --> 
+     <div class = "poll-container">
+      <div class = "poll" id = "id0">
+        <!--<div class = "select-btn" onclick = "Option_open('#id0')">☰</div>
+        <ul class = "options">
+          <li><span onclick = "Option_close()">Close</span></li>
+          <li><span onclick = "poll_open('#id0')">Open</span></li>
+          <li><span onclick = "poll_delete('id0')">Delete</span></li>
+        </ul>-->
+        <div class = "poll-name">Getting your polls, wait...</div>
+      </div>
+      
+      </div>
+     </div>
+     
+     <!-- Delete confirmation -->
+     <div class = "delete-container">
+        <div class = "Dmsg" style = "text-align: center;">Do you really want to delete <span></span></div>
+        <div class = "delete-btns">
+          <button style = "background: red;" onclick = "deletePoll(true)">YES</button>
+          <button style = "background: green" onclick = "deletePoll(false)">NO</button>
+        </div>
+     </div>
+     
+     <!-- Poll chart and detailed info -->     
+     <div class = "details-container">
+      <div class = "close-details-container" onclick = "close_details_container()">X</div>
+      <div class = "details">
+        <div id = "piechart">
+          Let's put the graph here
+        </div>
+      </div>
+      
+      
+      <div class = "details">
+          <div class = "info">
+            <span class = "poll-name" style = "color: #59DA97;">Poll Name</span><br>
+            Created by <span class = "poll-owner" style = "color: #7887DD; font-size: 2em;">Poll Owner</span><br><br>
+            <span class = "description">
+              Apsu dum theli of sun. After help, they found. Tou means, la voila
+              stopa nd sign, shoot at site orders from nani, ihh mudsbds. Sakof
+              fjes sato my duck. Elle mange, she eats
+            </span><br><br>
+            <span style = "font-size: 2em; color: #599;">Please vote</span><br><br>
+            <div class = "dummy" style = "display: flex; justify-content: center;">              
+              <div class = "poll-options" style = "text-align: left">                       
+              </div>  
+            </div>          
+            <button id = "poll-submit" style= "color:black; margin-top: 10px;">SUBMITx</button>  
+          </div>
+      </div>
+      
+     </div>
+    
+    <div class = "msg">
+      
+    </div>
+     
+       
+   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+   <script src="https://www.gstatic.com/charts/loader.js"></script> 
+   <script src="/myPolls.js"></script>
+  </body>
+</html>

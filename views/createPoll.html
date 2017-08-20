@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Poll</title>
+    <meta name="description" content="Polling App for FCC">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/createPoll.css">
+  </head>
+  
+  <body>
+   <div class = "header-container">
+        <div class = "header">
+          <a href = "/"><img src = "https://cdn.glitch.com/61ecfb14-e075-476f-bcb2-d1f3f76197ac%2FVS.png?1502877710976" style = "width: 60px; height: 60px; border-radius: 50%;"></a>
+        
+        <ul class = "menu">
+          <li class = "dropdown"><span id = "user">UserName &#9662; </span>
+            <ul class = "submenu">
+              <li><span onclick = "getPage('/user-polls')">My Polls</span></li>
+              <li><span onclick = "getPage('/vote')">Vote Page</span></li>
+              <li><span onclick = "getPage('/')">Home Page</span></li>
+              <li><span onclick = "getPage('/logout')">Logout</span></li>
+            </ul>
+          </li>
+        </ul>        
+       </div>
+      </div>
+  
+    <div class = "container">
+      <p>Create Poll</p>
+      <form action = "/makePoll" method = "post">
+        <input type = "text" name = "poll-name" placeholder = "Poll Name"  required/><br>
+        <textarea name = "description" placeholder = "Description"  required></textarea><br>
+        <div class = "options">
+          <input type = "text" name = "opt1" placeholder = "Option 1"  required/><br>
+          <input type = "text" name = "opt2" placeholder = "Option 2"  required/><br>
+          <div class = "btn" id = "add" onclick = "addOption()">Add</div>
+        </div>
+        <button class = "btn" type = "submit">SUBMIT</button> 
+      </form>
+    </div> 
+       
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
+    <script>
+      var id = 2, user;
+      
+      
+
+      $(function(){
+        $.get("/userData", function(data){    
+          if(data.user){
+            user = data.user;
+            $('.menu #user').html(user + ' &#9662;');            
+          }
+          else{
+            alert("you are not logged in, log in to continue");
+            window.location.href = "/";
+          }
+        });
+      });
+      
+      function addOption(){
+        id += 1;
+        var input = $("<input></input>");
+        input.attr({type: "text", placeholder: "Option "+id, name: "opt"+id, required: true});
+        input.append($("<br>"));
+        $(".options").append(input);
+      }
+      
+      function getPage(location){
+        window.location.href = location;     
+      }
+      
+    </script>
+  </body>
+</html>
