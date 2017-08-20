@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Polls...!!</title>
+    <meta name="description" content="Polling App for FCC">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  
+  <body>
+    <div class = "container">
+      <div class = "menu-container">
+        <div class = "menu">
+          <div class = "date">Today</div>
+          <div class = "login">Login</div>
+        </div>
+      </div>
+      
+      <!-- Header Section -->
+      <div class = "header-container">
+          Create polls, delete your existing poll or vote for polls...
+      </div>
+     
+     
+     <div class = "buttons-container">
+      <div class = "buttons">
+         <button id = "user-polls" style = "background: red;" >Your Polls </button>
+         <button id = "create-poll" style = "background: green;" >Create Poll </button>
+         <button id = "vote" style = "background: #5995DA;" >Vote </button>
+       </div>
+     </div>
+  </div>
+   
+   
+      <!-- Signup Page -->
+      <div class = "signup-container">
+        <div class = "cancel-btn" onclick = "closePopUp('.signup-container')">X</div>
+      <div class = "signup-msg">Signup to create polls, to vote and do lots of awesome stuff..</div>
+        <div class = "signup-form">
+          <form action="javascript:void(0);" id = "signup-form">
+            <input type = "text" class = "text-box" id = "usernameS" placeholder = "User Name" required /><br>
+            <input type = "password" class = "text-box" id = "passwordS" placeholder = "Enter Password" required /><br>
+            <input type = "password" class = "text-box" id = "reenter-passwordS" placeholder = "Reenter Password" required /><br>
+            <input type = "submit" class = "submit" value = "SUBMIT"/>
+           </form>
+        </div>
+      </div>
+      
+      <!-- Login Page -->
+      <div class = "login-container signup-container">
+        <div class = "cancel-btn" onclick = "closePopUp('.login-container')">X</div>
+        <div class = "login-msg signup-msg">Login to your account</div>
+        <div class = "login-form signup-form">
+          <form action="javascript:void(0);" id = "login-form">
+            <input type = "text" class = "text-box" id = "usernameL" placeholder = "User Name" required /><br>
+            <input type = "password" class = "text-box" id = "passwordL" placeholder = "Password" required /><br>
+            <input type = "submit" class = "submit" value = "SUBMIT"/>
+           </form>
+        </div>
+          Need an account <span onclick="signup()" style = "cursor: pointer; color: blue;">sign up</span>
+      </div>
+      
+      
+      <!-- js files -->
+      
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
+    <script src="client.js"></script>
+
+  </body>
+</html>

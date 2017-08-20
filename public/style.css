@@ -1,0 +1,142 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  background: #e3e3e3;
+  font-size: 16px;
+  /*background-image: url("images/vote-1.jpg");*/
+}
+
+.container{
+  opacity: 1;
+}
+
+.menu-container{
+  display: flex;
+  justify-content: center;
+  background: #5995DA;
+  padding: 20px 0;
+  font-size: 1.4em;
+}
+
+.menu{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+
+
+.login{
+  cursor: pointer;
+}
+
+.signup-container{
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width: 25%;
+  box-shadow: 0px 0px 10px #65DDA5;
+  padding: 15px;
+  border-radius: 7%;
+  background: #eee;
+  z-index: 10;
+  display: none;
+}
+
+.cancel-btn{
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  background: #DA598A;
+  border: 2px solid #59DD78;
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
+  color: #ddd;
+  cursor: pointer;
+}
+
+
+.signup-msg{
+  padding: 10px;
+  margin-bottom: 15px;
+  color: white;
+  background: #59DA95;
+}
+
+.signup-form{
+  width: 75%;
+  margin: auto;
+  font-size: 1.5em;
+}
+
+.text-box,
+.submit{
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #65DDA5;
+  outline: none;
+}
+
+.submit{
+  color: white;
+  background: #65DDA5;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.header-container{
+  color: black;
+  font-size: 3em;
+  margin: 7% auto;
+  width: 60%;
+  text-align: center;
+  
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+}
+
+.buttons{
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;  
+}
+
+.buttons > button{
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 1.42em;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.5s;
+}
+
+.buttons > button:active{
+  transform: translate(3px, 3px);
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.buttons > button:hover{
+  opacity: 0.7;
+  box-shadow: 0px 0px 15px #333;
+}

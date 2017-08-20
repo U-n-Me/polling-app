@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  color: white;
+}
+
+
+.header-container{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #59DD95;
+  z-index: 100;
+}
+
+.header{
+  width: 80%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu > li{
+  display: inline;
+  margin-right: 50px;
+  font-size: 1.4em;
+}
+
+
+span{
+  cursor: pointer;
+}
+
+.dropdown{
+  position: relative;
+}
+
+.dropdown > span{
+  position: relative;
+  z-index: 200;
+}
+
+.dropdown:hover .submenu{
+  display: block;
+  background: #50D6AA;
+  border-radius: 5px;
+  padding-top: 40px;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  z-index: 150;
+  width: 180px;
+}
+
+.submenu{
+  display: none;
+}
+
+.submenu li{
+  list-style: none;
+  border-bottom: 2px solid #777;
+  padding: 0 40px 10px 20px;
+  margin: 10px;
+  font-size: 0.8em;
+}
+
+.submenu li:last-of-type{
+  border-bottom: none;
+}
+
+
+
+
+.container{
+  margin: 10% auto;
+  padding: 10px;
+  width: 400px;
+  background: #666;
+  border: 2px solid #777;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.container p {
+  background: #43D1AF;
+  padding: 20px 0;
+  font-size: 180%;
+  font-weight: 300;
+  color: #fff;
+}
+
+
+form input[type="text"],
+form textarea[name = "description"]{ 
+    width: 95%;
+    background: #fff;
+    margin-top: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+
+.options input[type="text"]:last-of-type{
+  width: 85%;
+}
+
+.options{
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.btn{
+  background: #43D1AF;
+  padding: 5px 0;
+  font-size: 125%;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+	width: 70%;
+	margin:2% 0 2px 0;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+}
+
+#add{
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  background: #34ADAF;
+  width: 15%;
+}
