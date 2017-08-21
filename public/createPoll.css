@@ -6,6 +6,7 @@
 
 body{
   position: relative;
+  font-size: 16px;
   color: white;
 }
 
@@ -80,7 +81,7 @@ span{
 .container{
   margin: 10% auto;
   padding: 10px;
-  width: 400px;
+  width: 450px;
   background: #666;
   border: 2px solid #777;
   border-radius: 10px;
@@ -140,4 +141,15 @@ form textarea[name = "description"]{
   right: -5px;
   background: #34ADAF;
   width: 15%;
+}
+
+@media only screen and (max-width: 600px){
+  body{
+    font-size: 13px;
+  }
+  
+  .container{
+    margin: 18% auto;
+    width: 90%;
+  }
 }

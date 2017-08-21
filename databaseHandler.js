@@ -43,6 +43,11 @@ function signup(user, pass, res){
   users.find({username: user}).toArray(function(err, doc){
     if(doc.length == 0){
       users.insert({username: user, password: pass});
+      userPolls.insert({
+        username: user,
+        owns: [],
+        voted: []
+      });
       console.log('signup: added'); 
     }
     else{
@@ -105,22 +110,10 @@ function insertPolls(data, user, id){
 function insertUserPolls(data, user, id){
   userPolls.find({username: user}).toArray(function(err, doc){
     if(err) throw err;
-    if(doc.length == 0){
-      userPolls.insert({
-        username: user,
-        owns: [{
-                'poll-id': id,
-                'poll-name': data['poll-name']
-              }],
-        voted: []
-      });
-    }
-    else{
       userPolls.update(
         {username: user},
         {$push: {'owns': {'poll-id': id, 'poll-name': data['poll-name']} } }
       );
-    }
   });
   console.log('insert into userPolls');
 }
@@ -182,13 +175,18 @@ function getVote(pollId, user, res){
     pollId = parseInt(pollId);
   userPolls.find({username: user},{_id: 0, voted: 1}).toArray(function(err, doc){
     if(err) throw err;
-    var voted = doc[0].voted;
-    var result = "-1";
-    voted.forEach(function(vote){
-      if(vote['poll-id'] === pollId)
-        result = ""+vote['option'];
-    });
-    res.send(result);
+    
+    if(doc.length == 0)
+      res.send("-1");
+    else{
+      var voted = doc[0].voted;
+      var result = "-1";
+      voted.forEach(function(vote){
+        if(vote['poll-id'] === pollId)
+          result = ""+vote['option'];
+      });
+      res.send(result);      
+    }
   });
 }
 

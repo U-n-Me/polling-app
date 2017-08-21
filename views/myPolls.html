@@ -57,6 +57,7 @@
         </div>
      </div>
      
+    <div style = "margin-top: 80px;">
      <!-- Poll chart and detailed info -->     
      <div class = "details-container">
       <div class = "close-details-container" onclick = "close_details_container()">X</div>
@@ -67,7 +68,7 @@
       </div>
       
       
-      <div class = "details">
+      <div class = "details" style = "width: 40%;">
           <div class = "info">
             <span class = "poll-name" style = "color: #59DA97;">Poll Name</span><br>
             Created by <span class = "poll-owner" style = "color: #7887DD; font-size: 2em;">Poll Owner</span><br><br>
@@ -78,7 +79,8 @@
             </span><br><br>
             <span style = "font-size: 2em; color: #599;">Please vote</span><br><br>
             <div class = "dummy" style = "display: flex; justify-content: center;">              
-              <div class = "poll-options" style = "text-align: left">                       
+              <div class = "poll-options" style = "text-align: left">   
+                <!-- Radio buttons here-->
               </div>  
             </div>          
             <button id = "poll-submit" style= "color:black; margin-top: 10px;">SUBMITx</button>  
@@ -86,10 +88,8 @@
       </div>
       
      </div>
-    
-    <div class = "msg">
-      
     </div>
+    <div class = "msg"></div>
      
        
    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
