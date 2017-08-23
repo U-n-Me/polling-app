@@ -23,22 +23,21 @@ function connect(){
 }
 
 
-function login(user, pass, req, res){
+function login(user, pass, sendSession, sendRes){
   var found = false;
   var query = {username: user, password: pass};
   users.find(query).toArray(function(err, doc){
     if(err)throw err;
     if(doc.length > 0){
-      req.session.user = user;
-      req.session.pass = pass;
+      sendSession({user: user, pass: pass});
       found = true;
     }
     var status = found ? "0" : "-1";
-    res.send(status);
+    sendRes(status);
   });
 }
 
-function signup(user, pass, res){
+function signup(user, pass, sendRes){
   var alreadyThere = false;
   users.find({username: user}).toArray(function(err, doc){
     if(doc.length == 0){
@@ -55,7 +54,7 @@ function signup(user, pass, res){
       alreadyThere = true;     
     }
     var status = alreadyThere ? "-1" : "0";
-    res.send(status);
+    sendRes(status);
   });
 }
 
@@ -123,33 +122,33 @@ function insertUserPolls(data, user, id){
   is "user" or sends the poll-ids and poll-names
   of polls owned by "user"
 */
-function getUserPollsDataChunk(res, user){
+function getUserPollsDataChunk(user, sendData){
   userPolls.find({username: user}, {_id: 0, 'owns': 1}).toArray(function(err, doc){
     if(err) throw err;    
     //console.log(doc[0].owns);
     if(doc[0])
-      res.json(doc[0]["owns"]);
+      sendData(doc[0]["owns"]);
     else
-      res.json([]);
+      sendData([]);
   });
 }
 
-function getAllPollDataChunk(res){
+function getAllPollDataChunk(sendData){
   polls.find({}, {_id: 0, 'poll-id': 1, 'poll-name': 1}).toArray(function(err, doc){
     if(err) throw err;
     if(doc.length > 1)  // means there are polls, now return everything except  
-      res.json(doc.slice(1));    // first entry as that is currentId
+      sendData(doc.slice(1));    // first entry as that is currentId
     else
-      res.json([]);
+      sendData([]);
   });
 }
 
-function getPollData(id, res){
+function getPollData(id, sendData){
   id = parseInt(id);
   polls.find({'poll-id': id}).toArray(function(err, doc){
     if(err) throw err;
     console.log(doc[0]);
-    res.json(doc[0]);
+    sendData(doc[0]);
   });
 }
 
@@ -170,14 +169,14 @@ function deletePoll(id, user){
   );
 }
 
-function getVote(pollId, user, res){
+function getVote(pollId, user, sendData){
   if(typeof pollId !== 'number')
     pollId = parseInt(pollId);
   userPolls.find({username: user},{_id: 0, voted: 1}).toArray(function(err, doc){
     if(err) throw err;
     
     if(doc.length == 0)
-      res.send("-1");
+      sendData("-1");
     else{
       var voted = doc[0].voted;
       var result = "-1";
@@ -185,7 +184,7 @@ function getVote(pollId, user, res){
         if(vote['poll-id'] === pollId)
           result = ""+vote['option'];
       });
-      res.send(result);      
+      sendData(result);      
     }
   });
 }
