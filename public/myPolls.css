@@ -147,11 +147,11 @@ span{
 /*Delete container*/
 .delete-container{
   position: absolute;
-  top: 10%;
-  left: 40%;
+  top: 30%;
+  left: 32%;
+  width: 35%;
   background: #666;
   padding: 15px;
-  width: 300px;
   border: 2px solid white;
   font-size: 1.2em;
   display: none;
@@ -189,21 +189,21 @@ span{
 /* Bar chart and stuff */
 .details-container{
   position: absolute;
-  top: -10%;
+  /*top: 15%;*/
   left: 4%;
   width: 92%;
   background: #333;
-  height: 550px;
   z-index: 20;
   display: none;/*flex;*/
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 .details{
  padding: 1%;
- width: 43%;
- height: 85%;
+ width: 50%;
+ height: 90%;
  text-align: center;
 }
 
@@ -223,14 +223,14 @@ input[type = 'radio']{
   top: 0;
   left: 0;
   margin: 10px;
-  font-size: 2em;
+  font-size: 1.3em;
   cursor: default;
 }
 
 .close-details-container{
   position: absolute;
   top: -7px;
-  right: -7px;
+  left: -7px;
   border: 2px solid white;
   height: 30px;
   width: 30px;
@@ -244,7 +244,8 @@ input[type = 'radio']{
 .msg{
   position: fixed;
   top: 25%;
-  left: 40%;
+  left: 32%;
+  width: 35%;
   padding: 20px;
   min-height: 100px;
   background: #A9DA78;
@@ -255,4 +256,38 @@ input[type = 'radio']{
   border: 2px solid #555;
   border-radius: 10px;
   box-shadow: 2px 2px 20px #666;
+}
+
+/* Mobile css */
+@media only screen and (max-width: 600px){
+  body{
+    font-size: 13px;
+  }
+  
+  .msg{
+    left: 10%;
+    width: 80%;
+  }
+  
+  .delete-container{
+    left: 15%;
+    width: 70%;
+  }
+  
+  
+  .details{
+   padding: 3px;
+   width: 95%;
+   text-align: center;
+  }
+}
+
+
+/* Just to show data */
+@media only screen and (min-width: 601px) and (max-width: 1050px) {
+    .details{
+   padding: 5px;
+   width: 95%;
+   text-align: center;
+  }
 }

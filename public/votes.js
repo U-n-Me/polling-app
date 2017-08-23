@@ -1,6 +1,6 @@
 var user, myPolls, oldVote;
 // Optional; add a title and set the width and height of the chart
-var chartOptions = {legend: {position: 'bottom', textStyle: {color: 'aaa', fontSize: 16}},
+var chartOptions = {legend: {position: 'right', textStyle: {color: 'aaa', fontSize: 16}},
                'title':'My', titleTextStyle : {color: '#777'},
                is3D: true,
                'backgroundColor': '#333', 'width': 500, 'height': 400,
@@ -62,7 +62,7 @@ function getPage(location){
 }
 
 function poll_open(id){
-  $('.options').css({display: "none"});
+  $('.poll-container').css({display: "none"});
   showMsg('Opening, please wait..');
   $.get("/getPollData", {'poll-id' : id}, function(data){
     var name = data['poll-name'],
@@ -103,6 +103,7 @@ function poll_open(id){
 }
 
 function close_details_container(){
+  $('.poll-container').css({display: 'flex'});
   $('.details-container').css({display: 'none'});
   $('.info .poll-name').text("");
   $('.info .poll-owner').text("");

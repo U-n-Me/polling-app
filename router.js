@@ -36,14 +36,22 @@ function route(app){
   app.post("/signup", function (req, res){
     var pass = req.query.pass;
     var user = req.query.user;
-    db.signup(user, pass, res);
+    db.signup(user, pass, function(data){
+      res.send(data);
+    });
   });
 
   // If login not succesful, send some negative response
   app.post("/login", function (req, res){
     var pass = req.query.pass;
     var user = req.query.user;
-    db.login(user, pass, req, res);    
+    db.login(user, pass, function(sessionData){
+              req.session.user = sessionData.user;
+              req.session.pass = sessionData.pass;
+            },             
+             function(resData){
+              res.send(resData);
+            });    
   });
   
   app.post("/makePoll", function(req, res){
@@ -54,11 +62,15 @@ function route(app){
   
   // Sends poll id's of this session user
   app.get("/getUserPolls", function(req, res){
-    db.getUserPollsDataChunk(res, req.session.user);
+    db.getUserPollsDataChunk(req.session.user, function(data){
+      res.json(data);
+    });
   });
   
   app.get("/getAllPolls", function(req, res){
-    db.getAllPollDataChunk(res);
+    db.getAllPollDataChunk(function(data){
+      res.json(data);
+    });
   });
   
   app.get('/deletePoll', function(req, res){
@@ -66,11 +78,15 @@ function route(app){
   });
   
   app.get('/getPollData', function(req, res){
-    db.getPollData(req.query['poll-id'], res);
+    db.getPollData(req.query['poll-id'], function(data){
+      res.json(data);
+    });
   });
   
   app.get('/getVote', function(req, res){
-    db.getVote(req.query['poll-id'], req.query['user'], res);
+    db.getVote(req.query['poll-id'], req.query['user'], function(data){
+      res.send(data);
+    });
   });
   
   app.get('/submitVote', function(req, res){
